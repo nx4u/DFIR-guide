@@ -508,6 +508,26 @@ body.AR .tz-rule{border-left:none;border-right:3px solid var(--c3)}
 .risk-item .risk-when{font-weight:700;color:var(--text);margin-bottom:4px;font-size:13px}
 .risk-item .risk-act{font-size:12px;color:var(--text3)}
 @media(max-width:860px){.contain-risk{grid-template-columns:1fr}}
+
+/* ======== MOBILE UX FIXES ======== */
+.mobile-top-bar{display:none}
+@media(max-width:860px){
+  .mobile-top-bar{display:flex;gap:8px;padding:9px 14px;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:800;align-items:center;transition:background .3s,border-color .3s}
+  .mtb-btn{flex:1;padding:7px 8px;border:1px solid var(--border);border-radius:8px;background:var(--bg3);color:var(--text2);font-size:12px;font-family:inherit;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:4px}
+  .mtb-btn:active{background:var(--c1l);color:var(--c1);border-color:var(--c1b)}
+  .code-block,.cmd-block,.tipcode,.yara-rule{font-size:10px!important;line-height:1.65!important;padding:32px 10px 10px!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;max-width:100%;white-space:pre}
+  .copy-btn,.copy-btn-v5{font-size:10px!important;padding:2px 7px!important;top:4px!important}
+  .main{padding-bottom:90px}
+  .mob-menu-btn{bottom:1rem;padding:9px 16px;font-size:12px}
+  .btt{bottom:4.5rem;right:.9rem}
+  .mob-actions{display:flex;gap:7px;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+  .mob-action-btn{flex:1;padding:9px 8px;border:1px solid var(--border);border-radius:9px;background:var(--bg3);color:var(--text2);font-size:12px;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s}
+  .mob-action-btn:active{background:var(--c1l);color:var(--c1);border-color:var(--c1b)}
+  .dfir-table-wrap,.matrix-wrap,.eid-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .matrix-table,.dfir-table,.eid-table{min-width:500px}
+  .triage-area{grid-template-columns:1fr}
+  .contain-risk{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -564,6 +584,10 @@ body.AR .tz-rule{border-left:none;border-right:3px solid var(--c3)}
   </div>
 </nav>
 <main class="main">
+<div class="mobile-top-bar" id="mobileTopBar">
+  <button class="mtb-btn" id="mtb-lang" onclick="toggleLang();updateMobileBar()">&#x1F310; <span class="ari">&#x0639;&#x0631;&#x0628;&#x064A;</span><span class="eni">English</span></button>
+  <button class="mtb-btn" id="mtb-theme" onclick="toggleTheme();updateMobileBar()">&#x1F319; <span class="ari">&#x062F;&#x0627;&#x0643;&#x0646;</span><span class="eni">Dark</span></button>
+</div>
 <div class="hero">
   <div class="hey">Digital Forensics &amp; Incident Response</div>
   <h1 class="ar">&#x062a;&#x0639;&#x0644;&#x0651;&#x0645; <em>DFIR</em><br>&#x0645;&#x0646; &#x0627;&#x0644;&#x0635;&#x0641;&#x0631;</h1>
@@ -2536,6 +2560,25 @@ function bRefs(){
 }
 bRefs();
 
+
+// Update mobile buttons after lang/theme change
+function updateMobileBar(){
+  var isAR=document.body.classList.contains('AR');
+  var dark=isDark;
+  var mtbL=document.getElementById('mtb-lang');
+  var mtbT=document.getElementById('mtb-theme');
+  var mobL=document.getElementById('mob-lang-btn');
+  var mobT=document.getElementById('mob-theme-btn');
+  var langLblAR='\u0639\u0631\u0628\u064A';
+  var lightAR='\u0641\u0627\u062A\u062D';
+  var darkAR='\u062F\u0627\u0643\u0646';
+  if(mtbL) mtbL.innerHTML='\uD83C\uDF10 <span>'+(isAR?'English':langLblAR)+'</span>';
+  if(mtbT) mtbT.innerHTML=(dark?'\u2600\uFE0F':'\uD83C\uDF19')+' <span>'+(dark?(isAR?lightAR:'Light'):(isAR?darkAR:'Dark'))+'</span>';
+  if(mobL) mobL.innerHTML='\uD83C\uDF10 '+(isAR?'English':langLblAR);
+  if(mobT) mobT.innerHTML=(dark?'\u2600\uFE0F':'\uD83C\uDF19')+' '+(dark?(isAR?lightAR:'Light'):(isAR?darkAR:'Dark'));
+}
+setTimeout(updateMobileBar,300);
+
 window.addEventListener('scroll',function(){
   var btt=document.getElementById('btt');
   if(btt){btt.classList.toggle('show',window.scrollY>400);}
@@ -2730,6 +2773,11 @@ setTimeout(attachCopyBtns,800);
   <div class="mob-overlay" onclick="closeMobMenu()"></div>
   <div class="mob-panel">
     <div class="mob-handle"></div>
+    <div class="mob-actions">
+      <button class="mob-action-btn" id="mob-lang-btn" onclick="toggleLang();updateMobileBar()">&#x1F310; <span class="ari">English</span><span class="eni">&#x0639;&#x0631;&#x0628;&#x064A;</span></button>
+      <button class="mob-action-btn" id="mob-theme-btn" onclick="toggleTheme();updateMobileBar()">&#x1F319; <span class="ari">&#x0641;&#x0627;&#x062A;&#x062D;</span><span class="eni">Light</span></button>
+      <button class="mob-action-btn" onclick="window.print()">&#x1F5A8;&#xFE0F; <span class="ari">&#x0637;&#x0628;&#x0627;&#x0639;&#x0629;</span><span class="eni">Print</span></button>
+    </div>
     <div class="mob-panel-title"><span class="ari">&#x0627;&#x0644;&#x0623;&#x0642;&#x0633;&#x0627;&#x0645;</span><span class="eni">Sections</span></div>
     <div class="mob-nav-group">
       <div class="mob-nav-glabel"><span class="ari">&#x0627;&#x0644;&#x0623;&#x0633;&#x0627;&#x0633;&#x064A;&#x0627;&#x062A;</span><span class="eni">Fundamentals</span></div>
